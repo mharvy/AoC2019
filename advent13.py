@@ -9,7 +9,7 @@ class Arcade(object):
 	def __init__(self, cpu):
 		self.cpu = cpu
 		#self.screen = {}  for part 1
-		self.screen = [[0 for i in range(36)] for i in range(22)]
+		self.screen = [[' ' for i in range(36)] for i in range(22)]
 		self.score = 0
 
 	def play(self):
@@ -19,7 +19,7 @@ class Arcade(object):
 		plat_pos = (0, 0)
 
 		while not halt:
-			time.sleep(.01)  # for nice visual
+			#time.sleep(.01)  # for nice visual
 			if plat_pos[0] < ball_pos[0]:
 				js = 1
 			elif plat_pos[0] > ball_pos[0]:
@@ -38,7 +38,17 @@ class Arcade(object):
 
 			else:
 				#self.screen[(x,y)] = t  for part 1
-				self.screen[y + 1][x + 1] = t
+				if t == 0:
+					c = ' '
+				elif t == 1:
+					c = '#'
+				elif t == 2:
+					c = '='
+				elif t == 3:
+					c = '_'
+				elif t == 4:
+					c = 'o'
+				self.screen[y + 1][x + 1] = c
 				if t == 3:
 					plat_pos = (x, y)
 				if t == 4:
