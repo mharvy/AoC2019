@@ -19,7 +19,7 @@ class Arcade(object):
 		plat_pos = (0, 0)
 
 		while not halt:
-			time.sleep(.01)  # for nice visual
+			#time.sleep(.01)  # for nice visual
 			if plat_pos[0] < ball_pos[0]:
 				js = 1
 			elif plat_pos[0] > ball_pos[0]:
